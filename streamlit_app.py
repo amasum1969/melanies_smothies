@@ -3,7 +3,7 @@ import streamlit as st
 
 st.title(f":balloon: Customize Your Smoothies! :balloon:")
 st.write(
-  """Chhose the fruits you want in your Smoothies!
+  """Choose the fruits you want in your Smoothies!
   """
 )
 
