@@ -9,8 +9,8 @@ st.write('The name on your Smoothie will be: ', name_on_order)
 
 from snowflake.snowpark.functions import col
 
-cnn = st.connection("snowflake", type = "snowflake")
-session = cnn.session()
+conn = st.connection("snowflake")
+session = conn.session()
 st.my_dataframe = session.table("smoothies.public.fruit_options").select(col('FRUIT_NAME'))
 
 ingredients_list = st.multiselect(
