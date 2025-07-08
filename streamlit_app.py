@@ -1,4 +1,5 @@
 ## Import python packages
+from snowflake.snowpark.functions import col
 import streamlit as st
 st.title(f":balloon: Customize Your Smoothies! :balloon:")
 st.write(
@@ -9,9 +10,7 @@ st.write(
 name_on_order = st.text_input('Name on Smoothie:')
 st.write('The name on your Smoothie will be: ', name_on_order)
 
-from snowflake.snowpark.functions import col
-
-cnx = st.connection("snowflake", type="snowflake")
+cnx = st.connection("snowflake")
 session = cnx.session
 
 my_dataframe = session.table("smoothies.public.fruit_options").select(col('FRUIT_NAME'))
