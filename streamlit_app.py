@@ -2,10 +2,7 @@
 import streamlit as st
 
 st.title(f":balloon: Customize Your Smoothies! :balloon:")
-st.write(
-  """Choose the fruits you want in your Smoothies!
-  """
-)
+st.write('Choose the fruits you want in your Smoothies!')
 
 name_on_order = st.text_input('Name on Smoothie:')
 st.write('The name on your Smoothie will be: ', name_on_order)
