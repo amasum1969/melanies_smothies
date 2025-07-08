@@ -1,15 +1,21 @@
 ## Import python packages
-from snowflake.snowpark.functions import col
 import streamlit as st
+#from snowflake.snowpark.context import get_active_session
 
-# Get the Snowflake connection
-conn = st.connection("snowflake", type="snowflake")
+## Write directly to the app
+st.title(f":balloon: Customize Your Smoothies! :balloon:")
+st.write(
+  """Chhose the fruits you want in your Smoothies!
+  """
+)
 
-# Retrieve the Snowpark session
-session = conn.session
+name_on_order = st.text_input('Name on Smoothie:')
+st.write('The name on your Smoothie will be: ', name_on_order)
 
-# Query the table
-my_dataframe = session.table("smoothies.public.fruit_options").select(col("FRUIT_NAME"))
+from snowflake.snowpark.functions import col
+cnx = st.connection("snowflake")
+session = cnx.session()
+my_dataframe = session.table("smoothies.public.fruit_options").select(col('FRUIT_NAME'))
 
 ingredients_list = st.multiselect(
     'Choose up to 5 ingredients:'
