@@ -9,7 +9,7 @@ st.write('The name on your Smoothie will be: ', name_on_order)
 
 from snowflake.snowpark.functions import col
 
-cnx= st.connection("snwflake")
+cnx= st.connection("snowflake")
 session = cnx.session(table("smoothies.public.fruit_options").select(col('FRUIT_NAME')))
 st.my_dataframe(session)
 
